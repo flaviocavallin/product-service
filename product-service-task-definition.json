@@ -1,0 +1,42 @@
+{
+  "taskDefinition": {
+    "status": "ACTIVE",
+    "family": "product-service-task-definition",
+    "placementConstraints": [],
+    "requiresAttributes": [
+      {
+        "name": "com.amazonaws.ecs.capability.ecr-auth"
+      }
+    ],
+    "cpu": "250",
+    "compatibilities": [
+      "EC2"
+    ],
+    "volumes": [],
+    "memory": "300",
+    "requiresCompatibilities": [
+      "EC2"
+    ],
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:188675968167:task-definition/product-service-task-definition:1",
+    "containerDefinitions": [
+      {
+        "environment": [],
+        "name": "product-service",
+        "mountPoints": [],
+        "image": "188675968167.dkr.ecr.us-east-2.amazonaws.com/product-service:latest",
+        "cpu": 0,
+        "portMappings": [
+          {
+            "protocol": "tcp",
+            "containerPort": 8080,
+            "hostPort": 0
+          }
+        ],
+        "memory": 300,
+        "essential": true,
+        "volumesFrom": []
+      }
+    ],
+    "revision": 1
+  }
+}
