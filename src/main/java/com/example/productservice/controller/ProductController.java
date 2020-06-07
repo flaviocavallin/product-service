@@ -28,7 +28,7 @@ public class ProductController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public String get() {
-        String host = "HostName:" + ip.getHostName() + " - CanonicalHostName:" + ip.getCanonicalHostName() + " - HostAddress:" + ip.getHostAddress();
+        String host = "1 - HostName:" + ip.getHostName() + " - CanonicalHostName:" + ip.getCanonicalHostName() + " - HostAddress:" + ip.getHostAddress();
         LOGGER.info(host);
         return host;
     }

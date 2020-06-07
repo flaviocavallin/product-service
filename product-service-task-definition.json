@@ -2,7 +2,7 @@
   "family": "product-service-task-definition",
   "taskRoleArn": null,
   "executionRoleArn": null,
-  "networkMode": "bridge",
+  "networkMode": "default",
   "containerDefinitions": [
     {
       "name": "product-service",
