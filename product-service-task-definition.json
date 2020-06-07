@@ -67,14 +67,5 @@
   ],
   "pidMode": null,
   "ipcMode": "null",
-  "proxyConfiguration": {
-    "type": "APPMESH",
-    "containerName": "",
-    "properties": [
-      {
-        "name": "",
-        "value": ""
-      }
-    ]
-  }
+  "proxyConfiguration":null
 }
