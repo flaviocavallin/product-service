@@ -2,7 +2,7 @@
   "family": "product-service-task-definition",
   "taskRoleArn": null,
   "executionRoleArn": null,
-  "networkMode": null,
+  "networkMode": "bridge",
   "containerDefinitions": [
     {
       "name": "product-service",
@@ -30,20 +30,20 @@
       "linuxParameters": null,
       "secrets": null,
       "dependsOn": null,
-      "startTimeout": null,
-      "stopTimeout": null,
+      "startTimeout": 0,
+      "stopTimeout": 0,
       "hostname": null,
       "user": null,
       "workingDirectory": null,
       "disableNetworking": true,
-      "privileged": null,
-      "readonlyRootFilesystem": null,
+      "privileged": true,
+      "readonlyRootFilesystem": true,
       "dnsServers": null,
       "dnsSearchDomains": null,
       "extraHosts": null,
       "dockerSecurityOptions": null,
-      "interactive": null,
-      "pseudoTerminal": null,
+      "interactive": true,
+      "pseudoTerminal": true,
       "dockerLabels": null,
       "ulimits": null,
       "logConfiguration": null,
@@ -65,7 +65,7 @@
       "value": ""
     }
   ],
-  "pidMode": null,
-  "ipcMode": "null",
+  "pidMode": "task",
+  "ipcMode": "host",
   "proxyConfiguration":null
 }
