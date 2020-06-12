@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet id="1" author="fcavallin">
+        <createTable tableName="products">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="products" columnNames="name" constraintName="UK_PRODUCTS_01"/>
+    </changeSet>
+
+    <changeSet id="2" author="fcavallin">
+        <createTable tableName="buyers">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="buyers" columnNames="email" constraintName="UK_BUYERS_01"/>
+    </changeSet>
+
+    <changeSet id="3" author="fcavallin">
+        <createTable tableName="orders">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="issue_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="buyer_id" type="int">
+                <constraints foreignKeyName="FK_BUYER_ID" referencedColumnNames="id" referencedTableName="buyers" nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="fcavallin">
+        <createTable tableName="items">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="order_id" type="bigint">
+                <constraints foreignKeyName="FK_ORDER_ID" referencedColumnNames="id" referencedTableName="orders" nullable="false"/>
+            </column>
+            <column name="product_id" type="int">
+                <constraints foreignKeyName="FK_PRODUCT_ID" referencedColumnNames="id" referencedTableName="products" nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

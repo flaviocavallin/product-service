@@ -11,6 +11,7 @@ public class HealthCheckController {
 
     @GetMapping
     public ResponseEntity<Void> health() {
+        //TODO improve this
         return ResponseEntity.ok().build();
     }
 }
